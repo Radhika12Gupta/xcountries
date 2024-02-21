@@ -15,7 +15,7 @@ const Xcountries = () => {
     const fetchData=async()=> {
       // You can await here
       try{
-        const response = await fetch("https://restcountries.com/v3.1/all/1");
+        const response = await fetch("https://restcountries.com/v3.1/all");
         const jsonData=await response.json()
         setData(jsonData)
       }

@@ -15,15 +15,14 @@ const Xcountries = () => {
     const fetchData=async()=> {
       // You can await here
       try{
-        const response = await fetch("https://restcountries.com/v3.1/all");
+        const response = await fetch("https://restcountries.com/v3.1/all/1");
         const jsonData=await response.json()
         setData(jsonData)
       }
       catch(err)
       {
-         alert(err.message)
+         console.log(err.message)
       }
-      
     }
 
 
@@ -34,7 +33,7 @@ const Xcountries = () => {
   return (
     <div className={styles.container}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-    {data.map((item, index) => (
+    {data.length ? data.map((item, index) => (
     <Grid item xs={2} sm={3} md={2} key={index}>
       <div className={styles.wrapper}>
             <div className={styles.card}>
@@ -45,7 +44,7 @@ const Xcountries = () => {
                     </div>
                     </div>
     </Grid>
-  ))}
+  )): null }
 </Grid>
  
     </div>
